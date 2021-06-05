@@ -576,7 +576,7 @@ public class ChatCommandsPlugin extends Plugin
 		int idx = value.indexOf(' ');
 		final String boss = longBossName(value.substring(idx + 1));
 
-		final int kc = getKc(boss);
+		final int kc = config.setKC();
 		if (kc <= 0)
 		{
 			return false;
@@ -631,15 +631,9 @@ public class ChatCommandsPlugin extends Plugin
 		search = longBossName(search);
 
 		final int kc;
-		try
-		{
-			kc = chatClient.getKc(player, search);
-		}
-		catch (IOException ex)
-		{
-			log.debug("unable to lookup killcount", ex);
-			return;
-		}
+
+			kc = config.setKC();
+
 
 		String response = new ChatMessageBuilder()
 			.append(ChatColorType.HIGHLIGHT)

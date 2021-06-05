@@ -198,4 +198,12 @@ public interface ChatCommandsConfig extends Config
 	{
 		return new Keybind(KeyEvent.VK_BACK_SPACE, InputEvent.CTRL_DOWN_MASK);
 	}
+
+	@ConfigItem(
+		position = 15,
+		keyName = "setKC",
+		name = "KC to set",
+		description = "Any number typed here will appear when you do the !kc command"
+	)
+	default int setKC() { return 0; }
 }
